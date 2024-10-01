@@ -757,6 +757,21 @@
   </header>
   <div class="md-post__content md-typeset">
     <h2 id="introduction"><a class="toclink" href="../../../../2024/09/22/introduction/">Introduction</a></h2>
+<ul>
+<li><em>UART</em>: Universal Aysnchronous Receiver/Transmitter is a communication protocol that facilitates serial communication.</li>
+<li>The word Aysnchronous refers to the fact that the transmitting end and the receiving end don't share a common clock. The clock needs to be recoverd from the data itself. This mechanism is called <em>Clock Domain Recovery</em> (CDR).</li>
+<li><strong><em>Basic Flow</em></strong>:</li>
+<li>On the tx side:<ul>
+<li>Data is serialized.</li>
+<li>Framing is done: Data bits are padded with start and stop bits. There might be optional parity bit too.</li>
+<li>Framed packet is sent over Tx line.</li>
+</ul>
+</li>
+<li>On the rx side:<ul>
+<li>The receiver deserializes data from Rx line and unframes the packet to retreive original data bytes.</li>
+</ul>
+</li>
+</ul>
     
   </div>
 </article>
