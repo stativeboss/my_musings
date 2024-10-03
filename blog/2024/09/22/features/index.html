@@ -588,8 +588,10 @@
 <ul>
 <li>AXI-Lite compatible</li>
 </ul>
+<hr />
 <h1 id="block-diagram">Block Diagram</h1>
 <p><img alt="Block Diagram UART" src="../../../../../assets/verification/uart/block_dgm.png" /></p>
+<hr />
 <h1 id="register-map">Register Map</h1>
 <p>Each reg is a 32-bit and the base address is 32'b0.</p>
 <table>
@@ -762,7 +764,8 @@
 </tr>
 </tbody>
 </table>
-<h1 id="typical-packet-formation">Typical Packet Formation</h1>
+<hr />
+<h1 id="packet-detection">Packet Detection</h1>
 <ul>
 <li>The packet detection starts by detecting transition from 1 to 0.</li>
 <li>The incoming data is sampled at the bit-pulse centre for the next 9 clocks.</li>
