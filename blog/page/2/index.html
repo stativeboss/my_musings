@@ -769,16 +769,34 @@
   <div class="md-post__content md-typeset">
     <h2 id="features"><a class="toclink" href="../../2024/09/22/features/">Features</a></h2>
 <ul>
-<li><em>Communication</em></li>
-<li>Asynchronous Serial Communication with standard bauf rates for Tx and Rx.</li>
-<li><em>Data Format</em></li>
-<li>Configurable DW lengths from 5 through 8.</li>
+<li>
+<p><em>Communication</em></p>
+</li>
+<li>
+<p>Asynchronous Serial Communication with standard bauf rates for Tx and Rx.</p>
+</li>
+<li>
+<p><em>Data Format</em></p>
+</li>
+<li>
+<p>Configurable DW lengths from 5 through 8.</p>
+</li>
 <li>Parity bits.</li>
-<li>Start/Stop bits.</li>
-<li><em>Buffers</em></li>
-<li>16-byte FIFO buffers for Tx and Rx.</li>
-<li><em>Interface</em></li>
-<li>AXI-Lite compatible</li>
+<li>
+<p>Start/Stop bits.</p>
+</li>
+<li>
+<p><em>Buffers</em></p>
+</li>
+<li>
+<p>16-byte FIFO buffers for Tx and Rx.</p>
+</li>
+<li>
+<p><em>Interface</em></p>
+</li>
+<li>
+<p>AXI-Lite compatible</p>
+</li>
 </ul>
 <h2 id="block-diagram"><a class="toclink" href="../../2024/09/22/features/#block-diagram">Block Diagram</a></h2>
 <p><img alt="Block Diagram UART" src="../../../assets/verification/uart/block_dgm.png" /></p>
@@ -932,11 +950,28 @@
 </tbody>
 </table>
 <h3 id="div"><a class="toclink" href="../../2024/09/22/features/#div">DIV</a></h3>
-<p>This is a 16-bit counter that divides down the AXI clock to a freq which is 16x the serial data rate. 
-|Bit|Attribute|Description|
-|---|---------|-----------|
-|DIV[15:0]|RO|Baud Rate Divider|
-|31:16|RO|Reserved|</p>
+<p>This is a 16-bit counter that divides down the AXI clock to a freq which is 16x the serial data rate.</p>
+<table>
+<thead>
+<tr>
+<th>Bit</th>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DIV[15:0]</td>
+<td>RO</td>
+<td>Baud Rate Divider</td>
+</tr>
+<tr>
+<td>31:16</td>
+<td>RO</td>
+<td>Reserved</td>
+</tr>
+</tbody>
+</table>
     
   </div>
 </article>
