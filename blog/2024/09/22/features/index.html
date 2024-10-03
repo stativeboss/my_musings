@@ -515,6 +515,50 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Communication
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Format
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#buffers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Buffers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interface
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
           
         </div>
@@ -526,35 +570,23 @@
 
 
 <h1 id="features">Features</h1>
+<h3 id="communication"><em>Communication</em></h3>
 <ul>
-<li>
-<p><em>Communication</em></p>
-</li>
-<li>
-<p>Asynchronous Serial Communication with standard bauf rates for Tx and Rx.</p>
-</li>
-<li>
-<p><em>Data Format</em></p>
-</li>
-<li>
-<p>Configurable DW lengths from 5 through 8.</p>
-</li>
+<li>Asynchronous Serial Communication with standard bauf rates for Tx and Rx.</li>
+</ul>
+<h3 id="data-format"><em>Data Format</em></h3>
+<ul>
+<li>Configurable DW lengths from 5 through 8.</li>
 <li>Parity bits.</li>
-<li>
-<p>Start/Stop bits.</p>
-</li>
-<li>
-<p><em>Buffers</em></p>
-</li>
-<li>
-<p>16-byte FIFO buffers for Tx and Rx.</p>
-</li>
-<li>
-<p><em>Interface</em></p>
-</li>
-<li>
-<p>AXI-Lite compatible</p>
-</li>
+<li>Start/Stop bits.</li>
+</ul>
+<h3 id="buffers"><em>Buffers</em></h3>
+<ul>
+<li>16-byte FIFO buffers for Tx and Rx.</li>
+</ul>
+<h3 id="interface"><em>Interface</em></h3>
+<ul>
+<li>AXI-Lite compatible</li>
 </ul>
 <h1 id="block-diagram">Block Diagram</h1>
 <p><img alt="Block Diagram UART" src="../../../../../assets/verification/uart/block_dgm.png" /></p>
@@ -730,6 +762,13 @@
 </tr>
 </tbody>
 </table>
+<h1 id="typical-packet-formation">Typical Packet Formation</h1>
+<ul>
+<li>The packet detection starts by detecting transition from 1 to 0.</li>
+<li>The incoming data is sampled at the bit-pulse centre for the next 9 clocks.</li>
+<li>The 9th clock is to sample the optional Parity bit.</li>
+<li>The packet detection ends by sampling the Stop bit (logic 1).</li>
+</ul>
 
 
 

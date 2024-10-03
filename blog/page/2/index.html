@@ -768,35 +768,23 @@
   </header>
   <div class="md-post__content md-typeset">
     <h2 id="features"><a class="toclink" href="../../2024/09/22/features/">Features</a></h2>
+<h4 id="communication"><a class="toclink" href="../../2024/09/22/features/#communication"><em>Communication</em></a></h4>
 <ul>
-<li>
-<p><em>Communication</em></p>
-</li>
-<li>
-<p>Asynchronous Serial Communication with standard bauf rates for Tx and Rx.</p>
-</li>
-<li>
-<p><em>Data Format</em></p>
-</li>
-<li>
-<p>Configurable DW lengths from 5 through 8.</p>
-</li>
+<li>Asynchronous Serial Communication with standard bauf rates for Tx and Rx.</li>
+</ul>
+<h4 id="data-format"><a class="toclink" href="../../2024/09/22/features/#data-format"><em>Data Format</em></a></h4>
+<ul>
+<li>Configurable DW lengths from 5 through 8.</li>
 <li>Parity bits.</li>
-<li>
-<p>Start/Stop bits.</p>
-</li>
-<li>
-<p><em>Buffers</em></p>
-</li>
-<li>
-<p>16-byte FIFO buffers for Tx and Rx.</p>
-</li>
-<li>
-<p><em>Interface</em></p>
-</li>
-<li>
-<p>AXI-Lite compatible</p>
-</li>
+<li>Start/Stop bits.</li>
+</ul>
+<h4 id="buffers"><a class="toclink" href="../../2024/09/22/features/#buffers"><em>Buffers</em></a></h4>
+<ul>
+<li>16-byte FIFO buffers for Tx and Rx.</li>
+</ul>
+<h4 id="interface"><a class="toclink" href="../../2024/09/22/features/#interface"><em>Interface</em></a></h4>
+<ul>
+<li>AXI-Lite compatible</li>
 </ul>
 <h2 id="block-diagram"><a class="toclink" href="../../2024/09/22/features/#block-diagram">Block Diagram</a></h2>
 <p><img alt="Block Diagram UART" src="../../../assets/verification/uart/block_dgm.png" /></p>
@@ -972,6 +960,13 @@
 </tr>
 </tbody>
 </table>
+<h2 id="typical-packet-formation"><a class="toclink" href="../../2024/09/22/features/#typical-packet-formation">Typical Packet Formation</a></h2>
+<ul>
+<li>The packet detection starts by detecting transition from 1 to 0.</li>
+<li>The incoming data is sampled at the bit-pulse centre for the next 9 clocks.</li>
+<li>The 9th clock is to sample the optional Parity bit.</li>
+<li>The packet detection ends by sampling the Stop bit (logic 1).</li>
+</ul>
     
   </div>
 </article>
