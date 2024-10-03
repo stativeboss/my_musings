@@ -736,7 +736,7 @@
 </ul>
 </li>
 </ul>
-<p><a href="../../2024/09/22/spec/">Spec</a> * <a href="../../2024/09/22/baud-generator-design/">Baud Generator</a></p>
+<p><a href="../../2024/09/22/features/">Spec</a> * <a href="../../2024/09/22/baud-generator-design/">Baud Generator</a></p>
     
   </div>
 </article>
@@ -758,7 +758,7 @@
           
           <li class="md-meta__item">
             
-              1 min read
+              2 min read
             
           </li>
         
@@ -767,7 +767,176 @@
     </div>
   </header>
   <div class="md-post__content md-typeset">
-    <h2 id="spec"><a class="toclink" href="../../2024/09/22/spec/">Spec</a></h2>
+    <h2 id="features"><a class="toclink" href="../../2024/09/22/features/">Features</a></h2>
+<ul>
+<li><em>Communication</em></li>
+<li>Asynchronous Serial Communication with standard bauf rates for Tx and Rx.</li>
+<li><em>Data Format</em></li>
+<li>Configurable DW lengths from 5 through 8.</li>
+<li>Parity bits.</li>
+<li>Start/Stop bits.</li>
+<li><em>Buffers</em></li>
+<li>16-byte FIFO buffers for Tx and Rx.</li>
+<li><em>Interface</em></li>
+<li>AXI-Lite compatible</li>
+</ul>
+<h2 id="block-diagram"><a class="toclink" href="../../2024/09/22/features/#block-diagram">Block Diagram</a></h2>
+<p><img alt="Block Diagram UART" src="../../../assets/verification/uart/block_dgm.png" /></p>
+<h2 id="register-map"><a class="toclink" href="../../2024/09/22/features/#register-map">Register Map</a></h2>
+<p>Each reg is a 32-bit and the base address is 32'b0.</p>
+<table>
+<thead>
+<tr>
+<th>Register</th>
+<th>Offset</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../../2024/09/22/features/#rxd_txd">RxD_TxD</a></td>
+<td>00</td>
+<td>Rx and Tx Data reg</td>
+</tr>
+<tr>
+<td><a href="../../2024/09/22/features/#lcr">LCR</a></td>
+<td>0c</td>
+<td>Line Control reg</td>
+</tr>
+<tr>
+<td><a href="../../2024/09/22/features/#lsr">LSR</a></td>
+<td>14</td>
+<td>Line Status reg</td>
+</tr>
+<tr>
+<td><a href="../../2024/09/22/features/#div">DIV</a></td>
+<td>18</td>
+<td>Baud Rate Divider</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rxd_txd"><a class="toclink" href="../../2024/09/22/features/#rxd_txd">RxD_TxD</a></h3>
+<table>
+<thead>
+<tr>
+<th>Bit</th>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DATA[7:0]</td>
+<td>RW</td>
+<td>Write to push value to Tx FIFO/Read to get data from Rx FIFO</td>
+</tr>
+<tr>
+<td>31:8</td>
+<td>RO</td>
+<td>Reserved</td>
+</tr>
+</tbody>
+</table>
+<h3 id="lcr"><a class="toclink" href="../../2024/09/22/features/#lcr">LCR</a></h3>
+<table>
+<thead>
+<tr>
+<th>Bit</th>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CHAR[1:0]</td>
+<td>RW</td>
+<td>Number of bits per character. Loads 0x3 upon reset.</td>
+</tr>
+<tr>
+<td>STOP_BITS[2]</td>
+<td>RW</td>
+<td>Tells whether stop bit is transmitted. 0 indicates absence of stop bit.</td>
+</tr>
+<tr>
+<td>PARITY_EN[3]</td>
+<td>RW</td>
+<td>Parity Enable</td>
+</tr>
+<tr>
+<td>PARITY_SEL[4]</td>
+<td>RW</td>
+<td>Parity Select. 0 indicates odd parity while 1 indicates even parity</td>
+</tr>
+<tr>
+<td>31:5</td>
+<td>RO</td>
+<td>Reserved</td>
+</tr>
+</tbody>
+</table>
+<h3 id="lsr"><a class="toclink" href="../../2024/09/22/features/#lsr">LSR</a></h3>
+<table>
+<thead>
+<tr>
+<th>Bit</th>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DR[0]</td>
+<td>RO</td>
+<td>Data Ready</td>
+</tr>
+<tr>
+<td>OVRN_ERR[1]</td>
+<td>RO</td>
+<td>Overrun Error</td>
+</tr>
+<tr>
+<td>PRT_ERR[2]</td>
+<td>RO</td>
+<td>Parity Error</td>
+</tr>
+<tr>
+<td>FRM_ERR[3]</td>
+<td>RO</td>
+<td>Framing Error</td>
+</tr>
+<tr>
+<td>BRK_INT[4]</td>
+<td>RO</td>
+<td>Break Interrupt</td>
+</tr>
+<tr>
+<td>TX_HLD_EMPT[5]</td>
+<td>RO</td>
+<td>Tx Holding reg empty</td>
+</tr>
+<tr>
+<td>TX_EMPT[6]</td>
+<td>RO</td>
+<td>Tx Empty</td>
+</tr>
+<tr>
+<td>FIFO_ERR[7]</td>
+<td>RO</td>
+<td>FIFIO Error</td>
+</tr>
+<tr>
+<td>31:8</td>
+<td>RO</td>
+<td>Reserved</td>
+</tr>
+</tbody>
+</table>
+<h3 id="div"><a class="toclink" href="../../2024/09/22/features/#div">DIV</a></h3>
+<p>This is a 16-bit counter that divides down the AXI clock to a freq which is 16x the serial data rate. 
+|Bit|Attribute|Description|
+|---|---------|-----------|
+|DIV[15:0]|RO|Baud Rate Divider|
+|31:16|RO|Reserved|</p>
     
   </div>
 </article>
