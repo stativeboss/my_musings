@@ -736,7 +736,7 @@
 </ul>
 </li>
 </ul>
-<p><a href="../../../../2024/09/22/uart-spec/">Spec</a> * <a href="../../../../2024/09/22/baud-generator-design/">Baud Generator</a></p>
+<p><a href="../../../../2024/09/22/specification/">Spec</a> * <a href="../../../../2024/09/22/baud-generator-design/">Baud Generator</a></p>
     
   </div>
 </article>
@@ -767,31 +767,31 @@
     </div>
   </header>
   <div class="md-post__content md-typeset">
-    <h2 id="uart-spec"><a class="toclink" href="../../../../2024/09/22/uart-spec/">Uart spec</a></h2>
-<h3 id="features"><a class="toclink" href="../../../../2024/09/22/uart-spec/#features">Features</a></h3>
-<h4 id="communication"><a class="toclink" href="../../../../2024/09/22/uart-spec/#communication"><em>Communication</em></a></h4>
+    <h2 id="specification"><a class="toclink" href="../../../../2024/09/22/specification/">Specification</a></h2>
+<h3 id="features"><a class="toclink" href="../../../../2024/09/22/specification/#features">Features</a></h3>
+<h4 id="communication"><a class="toclink" href="../../../../2024/09/22/specification/#communication"><em>Communication</em></a></h4>
 <ul>
 <li>Asynchronous Serial Communication with standard bauf rates for Tx and Rx.</li>
 </ul>
-<h4 id="data-format"><a class="toclink" href="../../../../2024/09/22/uart-spec/#data-format"><em>Data Format</em></a></h4>
+<h4 id="data-format"><a class="toclink" href="../../../../2024/09/22/specification/#data-format"><em>Data Format</em></a></h4>
 <ul>
 <li>Configurable DW lengths from 5 through 8.</li>
 <li>Parity bits.</li>
 <li>Start/Stop bits.</li>
 </ul>
-<h4 id="buffers"><a class="toclink" href="../../../../2024/09/22/uart-spec/#buffers"><em>Buffers</em></a></h4>
+<h4 id="buffers"><a class="toclink" href="../../../../2024/09/22/specification/#buffers"><em>Buffers</em></a></h4>
 <ul>
 <li>16-byte FIFO buffers for Tx and Rx.</li>
 </ul>
-<h4 id="interface"><a class="toclink" href="../../../../2024/09/22/uart-spec/#interface"><em>Interface</em></a></h4>
+<h4 id="interface"><a class="toclink" href="../../../../2024/09/22/specification/#interface"><em>Interface</em></a></h4>
 <ul>
 <li>AXI-Lite compatible</li>
 </ul>
 <hr />
-<h3 id="block-diagram"><a class="toclink" href="../../../../2024/09/22/uart-spec/#block-diagram">Block Diagram</a></h3>
+<h3 id="block-diagram"><a class="toclink" href="../../../../2024/09/22/specification/#block-diagram">Block Diagram</a></h3>
 <p><img alt="Block Diagram UART" src="../../../../../assets/verification/uart/block_dgm.png" /></p>
 <hr />
-<h3 id="register-map"><a class="toclink" href="../../../../2024/09/22/uart-spec/#register-map">Register Map</a></h3>
+<h3 id="register-map"><a class="toclink" href="../../../../2024/09/22/specification/#register-map">Register Map</a></h3>
 <p>Each reg is a 32-bit and the base address is 32'b0.</p>
 <table>
 <thead>
@@ -803,28 +803,28 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../../../../2024/09/22/uart-spec/#rxd_txd">RxD_TxD</a></td>
+<td><a href="../../../../2024/09/22/specification/#rxd_txd">RxD_TxD</a></td>
 <td>00</td>
 <td>Rx and Tx Data reg</td>
 </tr>
 <tr>
-<td><a href="../../../../2024/09/22/uart-spec/#lcr">LCR</a></td>
+<td><a href="../../../../2024/09/22/specification/#lcr">LCR</a></td>
 <td>0c</td>
 <td>Line Control reg</td>
 </tr>
 <tr>
-<td><a href="../../../../2024/09/22/uart-spec/#lsr">LSR</a></td>
+<td><a href="../../../../2024/09/22/specification/#lsr">LSR</a></td>
 <td>14</td>
 <td>Line Status reg</td>
 </tr>
 <tr>
-<td><a href="../../../../2024/09/22/uart-spec/#div">DIV</a></td>
+<td><a href="../../../../2024/09/22/specification/#div">DIV</a></td>
 <td>18</td>
 <td>Baud Rate Divider</td>
 </tr>
 </tbody>
 </table>
-<h4 id="rxd_txd"><a class="toclink" href="../../../../2024/09/22/uart-spec/#rxd_txd">RxD_TxD</a></h4>
+<h4 id="rxd_txd"><a class="toclink" href="../../../../2024/09/22/specification/#rxd_txd">RxD_TxD</a></h4>
 <table>
 <thead>
 <tr>
@@ -846,7 +846,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="lcr"><a class="toclink" href="../../../../2024/09/22/uart-spec/#lcr">LCR</a></h4>
+<h4 id="lcr"><a class="toclink" href="../../../../2024/09/22/specification/#lcr">LCR</a></h4>
 <table>
 <thead>
 <tr>
@@ -883,7 +883,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="lsr"><a class="toclink" href="../../../../2024/09/22/uart-spec/#lsr">LSR</a></h4>
+<h4 id="lsr"><a class="toclink" href="../../../../2024/09/22/specification/#lsr">LSR</a></h4>
 <table>
 <thead>
 <tr>
@@ -940,7 +940,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="div"><a class="toclink" href="../../../../2024/09/22/uart-spec/#div">DIV</a></h4>
+<h4 id="div"><a class="toclink" href="../../../../2024/09/22/specification/#div">DIV</a></h4>
 <p>This is a 16-bit counter that divides down the AXI clock to a freq which is 16x the serial data rate.</p>
 <table>
 <thead>
@@ -964,7 +964,7 @@
 </tbody>
 </table>
 <hr />
-<h3 id="packet-detection"><a class="toclink" href="../../../../2024/09/22/uart-spec/#packet-detection">Packet Detection</a></h3>
+<h3 id="packet-detection"><a class="toclink" href="../../../../2024/09/22/specification/#packet-detection">Packet Detection</a></h3>
 <ul>
 <li>The packet detection starts by detecting transition from 1 to 0.</li>
 <li>The incoming data is sampled at the bit-pulse centre for the next 9 clocks.</li>
