@@ -20,7 +20,7 @@
     
     
       
-        <title>Features - Exploratory Musings</title>
+        <title>Uart spec - Exploratory Musings</title>
       
     
     
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Features
+              Uart spec
             
           </span>
         </div>
@@ -512,8 +512,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -522,6 +520,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#communication" class="md-nav__link">
     <span class="md-ellipsis">
       Communication
@@ -529,8 +537,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#data-format" class="md-nav__link">
     <span class="md-ellipsis">
       Data Format
@@ -538,8 +546,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#buffers" class="md-nav__link">
     <span class="md-ellipsis">
       Buffers
@@ -547,11 +555,85 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#interface" class="md-nav__link">
     <span class="md-ellipsis">
       Interface
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#block-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Block Diagram
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#register-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      Register Map
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Register Map">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rxd_txd" class="md-nav__link">
+    <span class="md-ellipsis">
+      RxD_TxD
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lcr" class="md-nav__link">
+    <span class="md-ellipsis">
+      LCR
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lsr" class="md-nav__link">
+    <span class="md-ellipsis">
+      LSR
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#div" class="md-nav__link">
+    <span class="md-ellipsis">
+      DIV
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#packet-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Packet Detection
     </span>
   </a>
   
@@ -569,7 +651,9 @@
         
 
 
-<h1 id="features">Features</h1>
+  <h1>Uart spec</h1>
+
+<h2 id="features">Features</h2>
 <h3 id="communication"><em>Communication</em></h3>
 <ul>
 <li>Asynchronous Serial Communication with standard bauf rates for Tx and Rx.</li>
@@ -589,10 +673,10 @@
 <li>AXI-Lite compatible</li>
 </ul>
 <hr />
-<h1 id="block-diagram">Block Diagram</h1>
+<h2 id="block-diagram">Block Diagram</h2>
 <p><img alt="Block Diagram UART" src="../../../../../assets/verification/uart/block_dgm.png" /></p>
 <hr />
-<h1 id="register-map">Register Map</h1>
+<h2 id="register-map">Register Map</h2>
 <p>Each reg is a 32-bit and the base address is 32'b0.</p>
 <table>
 <thead>
@@ -625,7 +709,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="rxd_txd">RxD_TxD</h2>
+<h3 id="rxd_txd">RxD_TxD</h3>
 <table>
 <thead>
 <tr>
@@ -647,7 +731,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="lcr">LCR</h2>
+<h3 id="lcr">LCR</h3>
 <table>
 <thead>
 <tr>
@@ -684,7 +768,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="lsr">LSR</h2>
+<h3 id="lsr">LSR</h3>
 <table>
 <thead>
 <tr>
@@ -741,7 +825,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="div">DIV</h2>
+<h3 id="div">DIV</h3>
 <p>This is a 16-bit counter that divides down the AXI clock to a freq which is 16x the serial data rate.</p>
 <table>
 <thead>
@@ -765,7 +849,7 @@
 </tbody>
 </table>
 <hr />
-<h1 id="packet-detection">Packet Detection</h1>
+<h2 id="packet-detection">Packet Detection</h2>
 <ul>
 <li>The packet detection starts by detecting transition from 1 to 0.</li>
 <li>The incoming data is sampled at the bit-pulse centre for the next 9 clocks.</li>
