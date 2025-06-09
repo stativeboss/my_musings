@@ -1,0 +1,42 @@
+name: Deploy on Dispatch from Private Repo
+
+on:
+  repository_dispatch:
+    types: [content-updated]
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout public repo
+        uses: actions/checkout@v3
+
+      - name: Checkout content from My_blogsite (private)
+        uses: actions/checkout@v3
+        with:
+          repository: stativeboss/My_blogsite
+          token: ${{ secrets.PRIVATE_REPO_ACCESS_TOKEN }}
+          path: content
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+
+      - name: Install dependencies
+        run: |
+          pip install mkdocs-material mkdocs-blog-plugin
+
+      - name: Build site
+        run: |
+          cd content
+          mkdocs build -v --site-dir ../site
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
