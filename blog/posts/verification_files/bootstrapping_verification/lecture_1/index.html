@@ -9,10 +9,6 @@
       
       
       
-        <link rel="prev" href="../../verification_index/">
-      
-      
-        <link rel="next" href="../uart_spec/">
       
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
@@ -20,7 +16,7 @@
     
     
       
-        <title>Readme - Exploratory Musings</title>
+        <title>Lecture 1 - Exploratory Musings</title>
       
     
     
@@ -81,11 +77,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#readme" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -115,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Readme
+              Lecture 1
             
           </span>
         </div>
@@ -283,12 +274,10 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
+      <li class="md-tabs__item">
         <a href="../../verification_index/" class="md-tabs__link">
           
   
@@ -1297,31 +1286,28 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
   
   
@@ -1334,7 +1320,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Verification Files
@@ -1368,31 +1354,28 @@
                 
   
   
-    
   
   
-  
     
     
     
     
       
       
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
         
           
-          
         
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
         
           
-          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
             
   
   
@@ -1405,7 +1388,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_2">
             <span class="md-nav__icon md-icon"></span>
             UART
@@ -1416,48 +1399,15 @@
                 
   
   
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    Readme
-    
-  </span>
-  
-
-      </a>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
   
   
     <li class="md-nav__item">
-      <a href="../uart_spec/" class="md-nav__link">
+      <a href="../../UART/uart_index.md" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Specification
+    None
     
   </span>
   
@@ -1475,12 +1425,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../uart_baud/" class="md-nav__link">
+      <a href="../../UART/uart_spec.md" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Baud Generator Design
+    None
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UART/uart_baud.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    None
     
   </span>
   
@@ -1619,34 +1592,15 @@
 
 
 
-<h1 id="readme">Readme</h1>
-<p>This is my notes of a <a href="https://courses.verificationxpert.com/courses/Project-Based-Learning-UART-Design-66c199d451d8f8018ccb3132">UART course</a>.</p>
-<ul>
-<li><em>UART</em>: Universal Aysnchronous Receiver/Transmitter is a communication protocol that facilitates serial communication.</li>
-<li>The word Aysnchronous refers to the fact that the transmitting end and the receiving end don't share a common clock. The clock needs to be recoverd from the data itself. This mechanism is called <em>Clock Domain Recovery</em> (CDR).</li>
-<li><strong><em>Basic Flow</em></strong>:<ul>
-<li>On the tx side:<ul>
-<li>Data is serialized.</li>
-<li>Framing is done: Data bits are padded with start and stop bits. There might be optional parity bit too.</li>
-<li>Framed packet is sent over Tx line.</li>
-</ul>
-</li>
-<li>On the rx side:<ul>
-<li>The receiver deserializes data from Rx line and unframes the packet to retreive original data bytes.</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+  <h1>Lecture 1</h1>
+
+<p>placeholder for lecture 1</p>
 
 
 
 
 
 
-
-  
-  
 
 
 
