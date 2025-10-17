@@ -12,7 +12,7 @@
       
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.84d31ad4.min.css">
       
         
         <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
@@ -1789,6 +1789,17 @@ The below code shows an implementation of async reset assertion and sync de-asse
 &emsp; - The 2nd FF is timed with same clk as the first one. </br>
 &emsp; - This provides an additional clk cycle for rst_n_sync1 to resolve from any metastability and settle down. rst_n_sync2 is basically a stable version of rst_n_sync1. </br></p>
 <h3 id="verification-plan-4-bit">Verification Plan (4-bit)</h3>
+<p>The verification plan typically involves 3 activities: </br>
+&emsp; 1. Test Plan: </br>
+&emsp;&emsp; - Check if the count resets to 0 on reset assertion. </br>
+&emsp;&emsp; - Check if the counter rolls back to 0 after max count. </br>
+&emsp;&emsp; - Check if the counter can count all counts. </br>
+&emsp; 2. Verification Strategy </br>
+&emsp;&emsp; - Random or Manual? Here easier manual as limited cases.</br>
+&emsp;&emsp; - Are there scenarios that need directed testing? Yep. All are directed.</br>
+&emsp;&emsp; - Do we need an automated checking mechanism? Nope. Manually verifiable.</br>
+&emsp; 3. Test Bench development </br>
+&emsp;&emsp; - Clock and reset generation </br></p>
 <h3 id="manual-verification-4-bit">Manual Verification (4-bit)</h3>
 <h3 id="test-bench-4-bit">Test Bench (4-bit)</h3>
 <h2 id="256-bit-counter-dut-verification">256-bit Counter DUT Verification</h2>
@@ -1908,7 +1919,7 @@ The below code shows an implementation of async reset assertion and sync de-asse
       <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.instant.preview", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.path", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
       
     
   </body>
