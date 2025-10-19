@@ -16,7 +16,7 @@
     
     
       
-        <title>Exploring - SIFT</title>
+        <title>19-10-2025 - SIFT</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#exploring" class="md-skip">
+        <a href="#19-10-2025" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Exploring
+              19-10-2025
             
           </span>
         </div>
@@ -1418,7 +1418,31 @@
 
 
 
-<h1 id="exploring">Exploring</h1>
+<h1 id="19-10-2025">19-10-2025</h1>
+<hr />
+<h2 id="action-items">Action Items</h2>
+<p>[x] Install dependencies and set up env</p>
+<p>[ ] Run all 5 tests from https://github.com/vyomasystems-lab/riscv_setup/tree/main/tests</p>
+<p>[ ] Examine test outputs for each test run: <br/>
+&emsp; - What RISC-V instructions used? <br/>
+&emsp; - How are registers used? <br/>
+&emsp; - What does the test verify? <br/></p>
+<p>[ ] Understand test framework: <br/>
+&emsp; - How tests are structured? <br/>
+&emsp; - What TEST_RR_OP does? <br/>
+&emsp; - How RVTEST_PASS/FAIL works? <br/></p>
+<p>[ ] Modify existing tests and examine output <br/></p>
+<p>[ ] Create a simple program, run it, and examine output <br/></p>
+<hr />
+<p>After cloning the repo locally, run</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>cd riscv_setup
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>make run TEST=tests/add.S      
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>make run TEST=tests/branch.S     
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>make run TEST=tests/load.S     
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>make run TEST=tests/store.S    
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>make run TEST=tests/illegal.S 
+</span></code></pre></div>
+<p>All the tests ran without errors and 5 folders were dumped in riscv_setup/work/, one per test. Each folder contains 3 files - <test_name>.disass, <test_name>.dump, and <test_name>.elf.</p>
 
 
 
